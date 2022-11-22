@@ -50,59 +50,59 @@ INSERT INTO `admins` (`id`, `fname`, `lname`, `email`, `phone`, `password`, `rol
 -- --------------------------------------------------------
 
 --
--- Table structure for table `managers`
+-- Table structure for table `department`
 --
 
-CREATE TABLE `managers` (
+CREATE TABLE `department` (
   `id` int(11) NOT NULL,
   `fname` varchar(100) NOT NULL,
   `lname` varchar(100) NOT NULL,
   `birthday` varchar(100) NOT NULL,
   `address` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `phone` varchar(100) NOT NULL,
+  `department` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `role` varchar(100) NOT NULL DEFAULT 'manager',
+  `role` varchar(100) NOT NULL DEFAULT 'dean',
   `avatar` varchar(255) NOT NULL DEFAULT 'avatar.png',
   `gender` varchar(10) NOT NULL,
   `salary` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `managers`
+-- Dumping data for table `department`
 --
 
-INSERT INTO `managers` (`id`, `fname`, `lname`,`birthday`,`address`, `email`, `phone`, `password`, `role`, `avatar`, `gender`, `salary`) VALUES
-(6, 'John', 'Sina','1/1/2002','Hà Nội', 'john@sina.com', '01700000000', '$2y$10$q47GJObI5t2mQ1CNwbmFyOlqDC/yKkxFRv4XOxryuhZvKeMhhxc7.', 'manager', 'avatar.png','Nam','10000000'),
-(7, 'Brock', 'Lesnar','3/1/2002','Hà Nam', 'brock@lesnar.com', '01700000000', '$2y$10$7l2gCp07viznC2PyWouDeuKB85JuxOtHUYmMt8Fs.8LDa7RZBEaRW', 'manager', 'avatar.png','Nữ','15000000');
+INSERT INTO `department` (`id`, `fname`, `lname`,`birthday`,`address`, `email`, `department`, `password`, `role`, `avatar`, `gender`, `salary`) VALUES
+(6, 'John', 'Sina','1/1/2002','Hà Nội', 'john@sina.com', 'Khoa Nội', '$2y$10$q47GJObI5t2mQ1CNwbmFyOlqDC/yKkxFRv4XOxryuhZvKeMhhxc7.', 'dean', 'avatar.png','Nam','10000000'),
+(7, 'Brock', 'Lesnar','3/1/2002','Hà Nam', 'brock@lesnar.com', 'Khoa Ngoại', '$2y$10$7l2gCp07viznC2PyWouDeuKB85JuxOtHUYmMt8Fs.8LDa7RZBEaRW', 'dean', 'avatar.png','Nữ','15000000');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pharmacists`
+-- Table structure for table `staff`
 --
 
-CREATE TABLE `pharmacists` (
+CREATE TABLE `staffNoi` (
   `id` int(11) NOT NULL,
   `fname` varchar(100) NOT NULL,
   `lname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `role` varchar(100) NOT NULL DEFAULT 'pharmacist',
+  `role` varchar(100) NOT NULL DEFAULT 'staff',
   `avatar` varchar(255) NOT NULL DEFAULT 'avatar.png',
   `gender` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pharmacists`
+-- Dumping data for table `staffNoi`
 --
 
-INSERT INTO `pharmacists` (`id`, `fname`, `lname`, `email`, `phone`, `password`, `role`, `avatar`, `gender`) VALUES
-(7, 'Pharmacist', 'Two', 'pharmacist@two.com', '01700000000', '$2y$10$5pi1bPBuaQt4s83hGFcTH.eRZvFqsMDDN.onp6.HJENwo0jqJqKjq', 'pharmacist', 'avatar.png', 'Nam'),
-(8, 'Pharmacist', 'Three', 'pharmacist@three.com', '0170000000', '$2y$10$RqNzWY0cxl9UCf01J.N9LOTTPb7GKarWAwM7/i8T8koNoFqQQk1Li', 'pharmacist', 'avatar.png', 'Nam'),
-(9, 'Pharmacist', 'Four', 'pharmacist@four.com', '01700000000', '$2y$10$GVggPVg5obYkaX87nzDA/u7uyMA.ej4A96RNXtLXpFWeENLxed.T6', 'pharmacist', 'avatar.png', 'Nam'),
-(10, 'Pharmacist', 'Five', 'pharmacist@five.com', '01700000000', '$2y$10$It21v0CAlfE8vMM4BN2hIukLIiR/RFBWvRdN3PirzkW6.r28Ls0AW', 'pharmacist', 'avatar.png', 'Nam');
+INSERT INTO `staffNoi` (`id`, `fname`, `lname`, `email`, `phone`, `password`, `role`, `avatar`, `gender`) VALUES
+(7, 'staff', 'Two', 'staff@two.com', '01700000000', '$2y$10$5pi1bPBuaQt4s83hGFcTH.eRZvFqsMDDN.onp6.HJENwo0jqJqKjq', 'staff', 'avatar.png', 'Nam'),
+(8, 'staff', 'Three', 'staff@three.com', '0170000000', '$2y$10$RqNzWY0cxl9UCf01J.N9LOTTPb7GKarWAwM7/i8T8koNoFqQQk1Li', 'staff', 'avatar.png', 'Nam'),
+(9, 'staff', 'Four', 'staff@four.com', '01700000000', '$2y$10$GVggPVg5obYkaX87nzDA/u7uyMA.ej4A96RNXtLXpFWeENLxed.T6', 'staff', 'avatar.png', 'Nam'),
+(10, 'staff', 'Five', 'staff@five.com', '01700000000', '$2y$10$It21v0CAlfE8vMM4BN2hIukLIiR/RFBWvRdN3PirzkW6.r28Ls0AW', 'staff', 'avatar.png', 'Nam');
 
 -- --------------------------------------------------------
 
@@ -142,16 +142,16 @@ ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `managers`
+-- Indexes for table `department`
 --
-ALTER TABLE `managers`
+ALTER TABLE `department`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `pharmacists`
+-- Indexes for table `staff`
 --
-ALTER TABLE `pharmacists`
+ALTER TABLE `staffNoi`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
@@ -173,15 +173,15 @@ ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `managers`
+-- AUTO_INCREMENT for table `department`
 --
-ALTER TABLE `managers`
+ALTER TABLE `department`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `pharmacists`
+-- AUTO_INCREMENT for table `staff`
 --
-ALTER TABLE `pharmacists`
+ALTER TABLE `staffNoi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --

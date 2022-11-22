@@ -8,42 +8,42 @@ if ( !$connection ) {
 } else {
     $action = $_REQUEST['action'] ?? '';
 
-    if ( 'addManager' == $action ) {
+    if ( 'addDepartment' == $action ) {
         $fname = $_REQUEST['fname'] ?? '';
         $lname = $_REQUEST['lname'] ?? '';
         $birthday = $_REQUEST['birthday'] ?? '';
         $address = $_REQUEST['address'] ?? '';
         $email = $_REQUEST['email'] ?? '';
-        $phone = $_REQUEST['phone'] ?? '';
+        $department = $_REQUEST['department'] ?? '';
         $password = $_REQUEST['password'] ?? '';
         $gender = $_REQUEST['gender'] ?? '';
         $salary = $_REQUEST['salary'] ?? '';
 
 
-        if ( $fname && $lname && $birthday && $address && $phone && $password && $gender && $salary ) {
+        if ( $fname && $lname && $birthday && $address && $department && $password && $gender && $salary ) {
             $hashPassword = password_hash( $password, PASSWORD_BCRYPT );
-            $query = "INSERT INTO managers(fname,lname,birthday,address,email,phone,password,gender) VALUES ('{$fname}','$lname','$birthday','$address','$email','$phone','$hashPassword','$gender,'$salary')";
+            $query = "INSERT INTO department(fname,lname,birthday,address,email,department,password,gender) VALUES ('{$fname}','$lname','$birthday','$address','$email','$department','$hashPassword','$gender,'$salary')";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allManager" );
+            header( "location:index.php?id=allDepartment" );
         }
 
-    } elseif ( 'updateManager' == $action ) {
+    } elseif ( 'updateDepartment' == $action ) {
         $id = $_REQUEST['id'] ?? '';
         $fname = $_REQUEST['fname'] ?? '';
         $lname = $_REQUEST['lname'] ?? '';
         $birthday = $_REQUEST['birthday'] ?? '';
         $address = $_REQUEST['address'] ?? '';
         $email = $_REQUEST['email'] ?? '';
-        $phone = $_REQUEST['phone'] ?? '';
+        $department = $_REQUEST['department'] ?? '';
         $gender = $_REQUEST['gender'] ?? '';
         $salary = $_REQUEST['salary'] ?? '';
 
-        if ( $fname && $lname && $birthday &&$address && $phone && $gender && $salary ) {
-            $query = "UPDATE managers SET fname='{$fname}', lname='{$lname}', birthday='{$birthday}', address = '{$address}', email='$email', phone='$phone', gender ='$gender', salary='$salary' WHERE id='{$id}'";
+        if ( $fname && $lname && $birthday &&$address && $department && $gender && $salary ) {
+            $query = "UPDATE department SET fname='{$fname}', lname='{$lname}', birthday='{$birthday}', address = '{$address}', email='$email', department='$department', gender ='$gender', salary='$salary' WHERE id='{$id}'";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allManager" );
+            header( "location:index.php?id=allDepartment" );
         }
-    } elseif ( 'addPharmacist' == $action ) {
+    } elseif ( 'addStaffNoi' == $action ) {
         $fname = $_REQUEST['fname'] ?? '';
         $lname = $_REQUEST['lname'] ?? '';
         $email = $_REQUEST['email'] ?? '';
@@ -53,11 +53,11 @@ if ( !$connection ) {
 
         if ( $fname && $lname && $lname && $phone && $password && $gender ) {
             $hashPassword = password_hash( $password, PASSWORD_BCRYPT );
-            $query = "INSERT INTO pharmacists(fname,lname,email,phone,password,gender) VALUES ('{$fname}','$lname','$email','$phone','$hashPassword','$gender')";
+            $query = "INSERT INTO staffNoi(fname,lname,email,phone,password,gender) VALUES ('{$fname}','$lname','$email','$phone','$hashPassword','$gender')";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allPharmacist" );
+            header( "location:index.php?id=allStaffNoi" );
         }
-    } elseif ( 'updatePharmacist' == $action ) {
+    } elseif ( 'updateStaffNoi' == $action ) {
         $id = $_REQUEST['id'] ?? '';
         $fname = $_REQUEST['fname'] ?? '';
         $lname = $_REQUEST['lname'] ?? '';
@@ -66,9 +66,9 @@ if ( !$connection ) {
         $gender = $_REQUEST['gender'] ?? '';
 
         if ( $fname && $lname && $lname && $phone && $gender ) {
-            $query = "UPDATE pharmacists SET fname='{$fname}', lname='{$lname}', email='$email', phone='$phone',gender = '$gender' WHERE id='{$id}'";
+            $query = "UPDATE staffNoi SET fname='{$fname}', lname='{$lname}', email='$email', phone='$phone',gender = '$gender' WHERE id='{$id}'";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allPharmacist" );
+            header( "location:index.php?id=allStaffNoi" );
         }
     } elseif ( 'addSalesman' == $action ) {
         $fname = $_REQUEST['fname'] ?? '';

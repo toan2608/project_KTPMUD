@@ -46,27 +46,30 @@
                 <?php
                     if ( 'dashboard' == $id ) {
                         echo "DashBoard";
-                    } elseif ( 'addManager' == $id ) {
-                        echo "Add Manager";
-                    } elseif ( 'allManager' == $id ) {
-                        echo "Managers";
-                    } elseif ( 'addPharmacist' == $id ) {
-                        echo "Add Pharmacist";
-                    } elseif ( 'allPharmacist' == $id ) {
-                        echo "Pharmacists";
-                    } elseif ( 'addSalesman' == $id ) {
-                        echo "Add Salesman";
-                    } elseif ( 'allSalesman' == $id ) {
-                        echo "Salesmans";
+                    } elseif ( 'addDepartment' == $id ) {
+                        echo "Add Department";
+                    } elseif ( 'allDepartment' == $id ) {
+                        echo "Department";
+                    } elseif ( 'addStaffNoi' == $id ) {
+                        echo "Add Staff Noi";
+                    } elseif ( 'allStaffNoi' == $id ) {
+                        echo "StaffNoi";
+                    } elseif ( 'addStaffNgoai' == $id ) {
+                        echo "Add Staff Ngoai";
+                    } elseif ( 'allStaffNgoai' == $id ) {
+                        echo "StaffNgoai";
                     } elseif ( 'userProfile' == $id ) {
                         echo "Your Profile";
-                    } elseif ( 'editManager' == $action ) {
-                        echo "Edit Manager";
-                    } elseif ( 'editPharmacist' == $action ) {
-                        echo "Edit Pharmacist";
-                    } elseif ( 'editSalesman' == $action ) {
+                    } elseif ( 'editDepartment' == $action ) {
+                        echo "Edit Department";
+                    } elseif ( 'editStaffNoi' == $action ) {
+                        echo "Edit Staff Noi";
+                    }elseif ( 'editStaffNgoai' == $action ) {
+                        echo "Edit Staff Ngoai";
+                    }elseif ( 'editSalesman' == $action ) {
                         echo "Edit Salesman";
                     }
+                     
                 ?>
 
             </span>
@@ -105,59 +108,73 @@
     <!--------------------------------- Sideber -------------------------------->
     <section id="sideber" class="sideber">
         <ul class="sideber__ber">
-            <h3 class="sideber__panel"><i id="left" class="fas fa-laugh-wink"></i> Hospital Manager</h3>
+            <h3 class="sideber__panel"><i id="left" class="fas fa-laugh-wink"></i> Hospital Department</h3>
             <li id="left" class="sideber__item<?php if ( 'dashboard' == $id ) {
                                                   echo " active";
                                               }?>">
                 <a href="index.php?id=dashboard"><i id="left" class="fas fa-tachometer-alt"></i>Dashboard</a>
             </li>
-            <li id="left" class="sideber__item<?php if ( 'list-manager' == $id ) {
+            <li id="left" class="sideber__item<?php if ( 'list-department' == $id ) {
                                                   echo " active";
                                               }?>">
-                <a href="index.php?id=list-manager"><i id="left" class="fas fa-tachometer-alt"></i>
-                    List Deparment
+                <a href="index.php?id=allDepartment"><i id="left" class="fas fa-tachometer-alt"></i>
+                    Deparment
                 </a>
+                <ul class="sideber__ber">
+                                        <?php if ( 'admin' == $sessionRole ) {?>
+                                            <!-- Only For Admin -->
+                                        <li id="left" class="sideber__item sideber__item--modify<?php if ( 'addDepartment' == $id ) {
+                                                                                                    echo " active";
+                                                                                                }?>">
+                                            <a href="index.php?id=addDepartment"><i id="left" class="fas fa-user-plus"></i></i>Add Department</a>
+                                        </li><?php }?>
+                                        <li id="left" class="sideber__item<?php if ( 'allDepartment' == $id ) {
+                                                                                                    echo " active";
+                                                                                                }?>">
+                                            <a href="index.php?id=allDepartment"><i id="left" class="fas fa-user"></i>All Department</a>
+                                        </li>
+                </ul>
                 <ul class="sideber__ber">
                             <li id="left" class="sideber__item sideber__item--modify<?php if ( 'admin' == $id ) {
                                     echo " active";
                                 }?>">
                                 <a href="index.php?id=admin"><i id="left" class="fas fa-tachometer-alt"></i>
-                                    List Dean Nội 
+                                    Dean Nội 
                                 </a>
                                 <ul class="sideber__ber">
                                         <?php if ( 'admin' == $sessionRole ) {?>
                                             <!-- Only For Admin -->
-                                        <li id="left" class="sideber__item sideber__item--modify<?php if ( 'addManager' == $id ) {
+                                        <li id="left" class="sideber__item sideber__item--modify<?php if ( 'addStaffNoi' == $id ) {
                                                                                                     echo " active";
                                                                                                 }?>">
-                                            <a href="index.php?id=addManager"><i id="left" class="fas fa-user-plus"></i></i>Add Dean</a>
+                                            <a href="index.php?id=addStaffNoi"><i id="left" class="fas fa-user-plus"></i></i>Add Staff</a>
                                         </li><?php }?>
-                                        <li id="left" class="sideber__item<?php if ( 'allManager' == $id ) {
+                                        <li id="left" class="sideber__item<?php if ( 'allStaffNoi' == $id ) {
                                                                                                     echo " active";
                                                                                                 }?>">
-                                            <a href="index.php?id=allManager"><i id="left" class="fas fa-user"></i>All Dean</a>
+                                            <a href="index.php?id=allStaffNoi"><i id="left" class="fas fa-user"></i>All Staff</a>
                                         </li>
-                                    </ul>
+                                </ul>
                             </li>
                             <li id="left" class="sideber__item sideber__item--modify<?php if ( 'admin' == $id ) {
                                     echo " active";
                                 }?>">
                                 <a href="index.php?id=admin"><i id="left" class="fas fa-tachometer-alt"></i>
-                                    List Dean Ngoại                                  
+                                    Dean Ngoại                                  
                                 </a>
                                 <ul class="sideber__ber">
-                                        <?php if ( 'admin' == $sessionRole || 'manager' == $sessionRole ) {?>
-                                            <!-- For Admin, Manager -->
-                                            <li id="left" class="sideber__item sideber__item--modify<?php if ( 'addPharmacist' == $id ) {
+                                        <?php if ( 'admin' == $sessionRole || 'department' == $sessionRole ) {?>
+                                            <!-- For Admin, department -->
+                                            <li id="left" class="sideber__item sideber__item--modify<?php if ( 'addStaff' == $id ) {
                                                                                                         echo " active";
                                                                                                     }?>">
-                                                <a href="index.php?id=addPharmacist"><i id="left" class="fas fa-user-plus"></i></i>Add
+                                                <a href="index.php?id=addStaff"><i id="left" class="fas fa-user-plus"></i></i>Add
                                                     User</a>
                                             </li><?php }?>
-                                            <li id="left" class="sideber__item<?php if ( 'allPharmacist' == $id ) {
+                                            <li id="left" class="sideber__item<?php if ( 'allStaff' == $id ) {
                                                                                                         echo " active";
                                                                                                     }?>">
-                                                <a href="index.php?id=allPharmacist"><i id="left" class="fas fa-user"></i>All User</a>
+                                                <a href="index.php?id=allStaff"><i id="left" class="fas fa-user"></i>All User</a>
                                             </li>
                                     </ul>
                             </li>             
@@ -182,10 +199,10 @@
                                 <div class="total__box text-center">
                                     <h1>
                                         <?php
-                                            $query = "SELECT COUNT(*) totalManager FROM managers;";
+                                            $query = "SELECT COUNT(*) totalDepartment FROM department;";
                                                 $result = mysqli_query( $connection, $query );
-                                                $totalManager = mysqli_fetch_assoc( $result );
-                                                echo $totalManager['totalManager'];
+                                                $totalDepartment = mysqli_fetch_assoc( $result );
+                                                echo $totalDepartment['totalDepartment'];
                                             ?>
                                     </h1>
                                     <h2>Dean</h2>
@@ -195,10 +212,10 @@
                                 <div class="total__box text-center">
                                     <h1>
                                         <?php
-                                            $query = "SELECT COUNT(*) totalPharmacist FROM pharmacists;";
+                                            $query = "SELECT COUNT(*) totalStaffNoi FROM staffNoi;";
                                                 $result = mysqli_query( $connection, $query );
-                                                $totalPharmacist = mysqli_fetch_assoc( $result );
-                                                echo $totalPharmacist['totalPharmacist'];
+                                                $totalStaffNoi = mysqli_fetch_assoc( $result );
+                                                echo $totalStaffNoi['totalStaffNoi'];
                                             ?>
 
                                     </h1>
@@ -222,10 +239,10 @@
             <?php }?>
             <!-- ---------------------- DashBoard ------------------------ -->
 
-            <!-- ---------------------- Manager ------------------------ -->
-            <div class="manager">
-                <?php if ( 'allManager' == $id ) {?>
-                    <div class="allManager">
+            <!-- ---------------------- Department ------------------------ -->
+            <div class="department">
+                <?php if ( 'allDepartment' == $id ) {?>
+                    <div class="allDepartment">
                         <div class="main__table">
                             <table class="table">
                                 <thead>
@@ -235,7 +252,7 @@
                                         <th scope="col">Date of birth</th>
                                         <th scope="col">Address</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Phone</th>
+                                        <th scope="col">Department</th>
                                         <th scope="col">Gender</th>
                                         <th scope="col">Salary</th>
                                         <?php if ( 'admin' == $sessionRole ) {?>
@@ -249,27 +266,27 @@
                                 <tbody>
 
                                     <?php
-                                        $getManagers = "SELECT * FROM managers";
-                                            $result = mysqli_query( $connection, $getManagers );
+                                        $getDepartment = "SELECT * FROM department";
+                                            $result = mysqli_query( $connection, $getDepartment );
 
-                                        while ( $manager = mysqli_fetch_assoc( $result ) ) {?>
+                                        while ( $department = mysqli_fetch_assoc( $result ) ) {?>
 
                                         <tr>
                                             <td>
-                                                <center><img class="rounded-circle" width="40" height="40" src="assets/img/<?php echo $manager['avatar']; ?>" alt=""></center>
+                                                <center><img class="rounded-circle" width="40" height="40" src="assets/img/<?php echo $department['avatar']; ?>" alt=""></center>
                                             </td>
-                                            <td><?php printf( "%s %s", $manager['fname'], $manager['lname'] );?></td>
-                                            <td><?php printf( "%s", $manager['birthday'] );?></td>
-                                            <td><?php printf( "%s", $manager['address'] );?></td>
-                                            <td><?php printf( "%s", $manager['email'] );?></td>
-                                            <td><?php printf( "%s", $manager['phone'] );?></td>
-                                            <td><?php printf( "%s", $manager['gender'] );?></td>
-                                            <td><?php printf( "%s", $manager['salary'] );?></td>
+                                            <td><?php printf( "%s %s", $department['fname'], $department['lname'] );?></td>
+                                            <td><?php printf( "%s", $department['birthday'] );?></td>
+                                            <td><?php printf( "%s", $department['address'] );?></td>
+                                            <td><?php printf( "%s", $department['email'] );?></td>
+                                            <td><?php printf( "%s", $department['department'] );?></td>
+                                            <td><?php printf( "%s", $department['gender'] );?></td>
+                                            <td><?php printf( "%s", $department['salary'] );?></td>
                                             <?php if ( 'admin' == $sessionRole ) {?>
                                                 <!-- Only For Admin -->
-                                                <td><?php printf( "<a href='index.php?action=editManager&id=%s'><i class='fas fa-edit'></i></a>", $manager['id'] )?></td>
-                                                <td><?php printf( "<a class='delete' href='index.php?action=deleteManager&id=%s'><i class='fas fa-trash'></i></a>", $manager['id'] )?></td>
-                                                <td><?php printf( "<a href='index.php?id=allPharmacist'><i class='fas ti-folder'></i></a>", $manager['id'] )?></td>
+                                                <td><?php printf( "<a href='index.php?action=editDepartment&id=%s'><i class='fas fa-edit'></i></a>", $department['id'] )?></td>
+                                                <td><?php printf( "<a class='delete' href='index.php?action=deleteDepartment&id=%s'><i class='fas fa-trash'></i></a>", $department['id'] )?></td>
+                                                <td><?php printf( "<a href='index.php?id=allStaffNoi'><i class='fas ti-folder'></i></a>", $department['id'] )?></td>
                                             <?php }?>
                                         </tr>
 
@@ -283,10 +300,10 @@
                     </div>
                 <?php }?>
 
-                <?php if ( 'addManager' == $id ) {?>
-                    <div class="addManager">
+                <?php if ( 'addDepartment' == $id ) {?>
+                    <div class="addDepartment">
                         <div class="main__form">
-                            <div class="main__form--title text-center">Add New Manager</div>
+                            <div class="main__form--title text-center">Add New Deparment</div>
                             <form action="add.php" method="POST">
                                 <div class="form-row">
                                     <div class="col col-12">
@@ -322,7 +339,7 @@
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-phone-alt"></i>
-                                            <input type="number" name="phone" placeholder="Phone" required>
+                                            <input type="text" name="department" placeholder="Department" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
@@ -344,7 +361,7 @@
                                             <input type="number" name="salary" placeholder="Salary" required>
                                         </label>
                                     </div>
-                                    <input type="hidden" name="action" value="addManager">
+                                    <input type="hidden" name="action" value="addDepartment">
                                     <div class="col col-12">
                                         <input type="submit" value="Submit">
                                     </div>
@@ -355,67 +372,67 @@
                     </div>
                 <?php }?>
 
-                <?php if ( 'editManager' == $action ) {
-                        $managerId = $_REQUEST['id'];
-                        $selectManagers = "SELECT * FROM managers WHERE id='{$managerId}'";
-                        $result = mysqli_query( $connection, $selectManagers );
+                <?php if ( 'editDepartment' == $action ) {
+                        $departmentId = $_REQUEST['id'];
+                        $selectDepartment = "SELECT * FROM department WHERE id='{$departmentId}'";
+                        $result = mysqli_query( $connection, $selectDepartment );
 
-                    $manager = mysqli_fetch_assoc( $result );?>
-                    <div class="addManager">
+                    $department = mysqli_fetch_assoc( $result );?>
+                    <div class="addDepartment">
                         <div class="main__form">
-                            <div class="main__form--title text-center">Update Manager</div>
+                            <div class="main__form--title text-center">Update Department</div>
                             <form action="add.php" method="POST">
                                 <div class="form-row">
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-user-circle"></i>
-                                            <input type="text" name="fname" placeholder="First name" value="<?php echo $manager['fname']; ?>" required>
+                                            <input type="text" name="fname" placeholder="First name" value="<?php echo $department['fname']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-user-circle"></i>
-                                            <input type="text" name="lname" placeholder="Last Name" value="<?php echo $manager['lname']; ?>" required>
+                                            <input type="text" name="lname" placeholder="Last Name" value="<?php echo $department['lname']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-user-circle"></i>
-                                            <input type="text" name="birthday" placeholder="Date of birthday" value="<?php echo $manager['birthday']; ?>" required>
+                                            <input type="text" name="birthday" placeholder="Date of birthday" value="<?php echo $department['birthday']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-user-circle"></i>
-                                            <input type="text" name="address" placeholder="Address" value="<?php echo $manager['address']; ?>" required>
+                                            <input type="text" name="address" placeholder="Address" value="<?php echo $department['address']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-envelope"></i>
-                                            <input type="email" name="email" placeholder="Email" value="<?php echo $manager['email']; ?>" required>
+                                            <input type="email" name="email" placeholder="Email" value="<?php echo $department['email']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-phone-alt"></i>
-                                            <input type="number" name="phone" placeholder="Phone" value="<?php echo $manager['phone']; ?>" required>
+                                            <input type="text" name="department" placeholder="Department" value="<?php echo $department['department']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-gender-alt"></i>
-                                            <input type="text" name="gender" placeholder="Gender" value="<?php echo $manager['gender']; ?>" required>
+                                            <input type="text" name="gender" placeholder="Gender" value="<?php echo $department['gender']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-phone-alt"></i>
-                                            <input type="number" name="salary" placeholder="Salary" value="<?php echo $manager['salary']; ?>" required>
+                                            <input type="number" name="salary" placeholder="Salary" value="<?php echo $department['salary']; ?>" required>
                                         </label>
                                     </div>
-                                    <input type="hidden" name="action" value="updateManager">
-                                    <input type="hidden" name="id" value="<?php echo $managerId; ?>">
+                                    <input type="hidden" name="action" value="updateDepartment">
+                                    <input type="hidden" name="id" value="<?php echo $departmentId; ?>">
                                     <div class="col col-12">
                                         <input type="submit" value="Update">
                                     </div>
@@ -425,19 +442,20 @@
                     </div>
                 <?php }?>
 
-                <?php if ( 'deleteManager' == $action ) {
-                        $managerId = $_REQUEST['id'];
-                        $deleteManager = "DELETE FROM managers WHERE id ='{$managerId}'";
-                        $result = mysqli_query( $connection, $deleteManager );
-                        header( "location:index.php?id=allManager" );
+                <?php if ( 'deleteDepartment' == $action ) {
+                        $departmentID = $_REQUEST['id'];
+                        $deleteDepartment = "DELETE FROM department WHERE id ='{$departmentID}'";
+                        $result = mysqli_query( $connection, $deleteDepartment);
+                        header( "location:index.php?id=allDepartment" );
+                       
                 }?>
             </div>
-            <!-- ---------------------- Manager ------------------------ -->
+            <!-- ---------------------- department ------------------------ -->
 
-            <!-- ---------------------- Pharmacist ------------------------ -->
-            <div class="pharmacist">
-                <?php if ( 'allPharmacist' == $id ) {?>
-                    <div class="allPharmacist">
+            <!-- ---------------------- Staff ------------------------ -->
+            <div class="staff">
+                <?php if ( 'allStaffNoi' == $id ) {?>
+                    <div class="allStaffNoi">
                         <div class="main__table">
                             <table class="table">
                                 <thead>
@@ -447,8 +465,8 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Phone</th>
                                         <th scope="col">Gender</th>
-                                        <?php if ( 'admin' == $sessionRole || 'manager' == $sessionRole ) {?>
-                                            <!-- For Admin, Manager -->
+                                        <?php if ( 'admin' == $sessionRole || 'department' == $sessionRole ) {?>
+                                            <!-- For Admin, department -->
                                             <th scope="col">Edit</th>
                                             <th scope="col">Delete</th>
                                         <?php }?>
@@ -457,23 +475,23 @@
                                 <tbody>
 
                                     <?php
-                                        $getPharmacist = "SELECT * FROM pharmacists";
-                                            $result = mysqli_query( $connection, $getPharmacist );
+                                        $getStaffNoi = "SELECT * FROM staffNoi";
+                                            $result = mysqli_query( $connection, $getStaffNoi );
 
-                                        while ( $pharmacist = mysqli_fetch_assoc( $result ) ) {?>
+                                        while ( $staffNoi = mysqli_fetch_assoc( $result ) ) {?>
 
                                         <tr>
                                             <td>
-                                                <center><img class="rounded-circle" width="40" height="40" src="assets/img/<?php echo $pharmacist['avatar']; ?>" alt=""></center>
+                                                <center><img class="rounded-circle" width="40" height="40" src="assets/img/<?php echo $staffNoi['avatar']; ?>" alt=""></center>
                                             </td>
-                                            <td><?php printf( "%s %s", $pharmacist['fname'], $pharmacist['lname'] );?></td>
-                                            <td><?php printf( "%s", $pharmacist['email'] );?></td>
-                                            <td><?php printf( "%s", $pharmacist['phone'] );?></td>
-                                            <td><?php printf( "%s", $pharmacist['gender'] );?></td>
-                                            <?php if ( 'admin' == $sessionRole || 'manager' == $sessionRole ) {?>
-                                                <!-- For Admin, Manager -->
-                                                <td><?php printf( "<a href='index.php?action=editPharmacist&id=%s'><i class='fas fa-edit'></i></a>", $pharmacist['id'] )?></td>
-                                                <td><?php printf( "<a class='delete' href='index.php?action=deletePharmacist&id=%s'><i class='fas fa-trash'></i></a>", $pharmacist['id'] )?></td>
+                                            <td><?php printf( "%s %s", $staffNoi['fname'], $staffNoi['lname'] );?></td>
+                                            <td><?php printf( "%s", $staffNoi['email'] );?></td>
+                                            <td><?php printf( "%s", $staffNoi['phone'] );?></td>
+                                            <td><?php printf( "%s", $staffNoi['gender'] );?></td>
+                                            <?php if ( 'admin' == $sessionRole || 'department' == $sessionRole ) {?>
+                                                <!-- For Admin, department -->
+                                                <td><?php printf( "<a href='index.php?action=editStaffNoi&id=%s'><i class='fas fa-edit'></i></a>", $staffNoi['id'] )?></td>
+                                                <td><?php printf( "<a class='delete' href='index.php?action=deleteStaffNoi&id=%s'><i class='fas fa-trash'></i></a>", $staffNoi['id'] )?></td>
                                             <?php }?>
                                         </tr>
 
@@ -487,10 +505,10 @@
                     </div>
                 <?php }?>
 
-                <?php if ( 'addPharmacist' == $id ) {?>
-                    <div class="addPharmacist">
+                <?php if ( 'addStaffNoi' == $id ) {?>
+                    <div class="addStaff">
                         <div class="main__form">
-                            <div class="main__form--title text-center">Add New Pharmacist</div>
+                            <div class="main__form--title text-center">Add New Staff</div>
                             <form action="add.php" method="POST">
                                 <div class="form-row">
                                     <div class="col col-12">
@@ -530,7 +548,7 @@
                                             <input type="text" name="gender" placeholder="Gender" required>
                                         </label>
                                     </div>
-                                    <input type="hidden" name="action" value="addPharmacist">
+                                    <input type="hidden" name="action" value="addStaffNoi">
                                     <div class="col col-12">
                                         <input type="submit" value="Submit">
                                     </div>
@@ -541,49 +559,49 @@
                     </div>
                 <?php }?>
 
-                <?php if ( 'editPharmacist' == $action ) {
-                        $pharmacistID = $_REQUEST['id'];
-                        $selectPharmacist = "SELECT * FROM pharmacists WHERE id='{$pharmacistID}'";
-                        $result = mysqli_query( $connection, $selectPharmacist );
+                <?php if ( 'editStaffNoi' == $action ) {
+                        $staffNoiID = $_REQUEST['id'];
+                        $selectStaffNoi = "SELECT * FROM staffNoi WHERE id='{$staffNoiID}'";
+                        $result = mysqli_query( $connection, $selectStaffNoi );
 
-                    $pharmacist = mysqli_fetch_assoc( $result );?>
-                    <div class="addManager">
+                    $staffNoi = mysqli_fetch_assoc( $result );?>
+                    <div class="addDepartment">
                         <div class="main__form">
-                            <div class="main__form--title text-center">Update Pharmacist</div>
+                            <div class="main__form--title text-center">Update staffNoi</div>
                             <form action="add.php" method="POST">
                                 <div class="form-row">
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-user-circle"></i>
-                                            <input type="text" name="fname" placeholder="First name" value="<?php echo $pharmacist['fname']; ?>" required>
+                                            <input type="text" name="fname" placeholder="First name" value="<?php echo $staffNoi['fname']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-user-circle"></i>
-                                            <input type="text" name="lname" placeholder="Last Name" value="<?php echo $pharmacist['lname']; ?>" required>
+                                            <input type="text" name="lname" placeholder="Last Name" value="<?php echo $staffNoi['lname']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-envelope"></i>
-                                            <input type="email" name="email" placeholder="Email" value="<?php echo $pharmacist['email']; ?>" required>
+                                            <input type="email" name="email" placeholder="Email" value="<?php echo $staffNoi['email']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-phone-alt"></i>
-                                            <input type="number" name="phone" placeholder="Phone" value="<?php echo $pharmacist['phone']; ?>" required>
+                                            <input type="number" name="phone" placeholder="Phone" value="<?php echo $staffNoi['phone']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-gender-alt"></i>
-                                            <input type="text" name="gender" placeholder="Gender" value="<?php echo $pharmacist['gender']; ?>" required>
+                                            <input type="text" name="gender" placeholder="Gender" value="<?php echo $staffNoi['gender']; ?>" required>
                                         </label>
                                     </div>
-                                    <input type="hidden" name="action" value="updatePharmacist">
-                                    <input type="hidden" name="id" value="<?php echo $pharmacistID; ?>">
+                                    <input type="hidden" name="action" value="updateStaffNoi">
+                                    <input type="hidden" name="id" value="<?php echo $staffNoiID; ?>">
                                     <div class="col col-12">
                                         <input type="submit" value="Update">
                                     </div>
@@ -593,14 +611,14 @@
                     </div>
                 <?php }?>
 
-                <?php if ( 'deletePharmacist' == $action ) {
-                        $pharmacistID = $_REQUEST['id'];
-                        $deletePharmacist = "DELETE FROM pharmacists WHERE id ='{$pharmacistID}'";
-                        $result = mysqli_query( $connection, $deletePharmacist );
-                        header( "location:index.php?id=allPharmacist" );
+                <?php if ( 'deleteStaffNoi' == $action ) {
+                        $staffNoiID = $_REQUEST['id'];
+                        $deleteStaffNoi = "DELETE FROM staffNoi WHERE id ='{$staffNoiID}'";
+                        $result = mysqli_query( $connection, $deleteStaffNoi );
+                        header( "location:index.php?id=allStaffNoi" );
                 }?>
             </div>
-            <!-- ---------------------- Pharmacist ------------------------ -->
+            <!-- ---------------------- Staff ------------------------ -->
 
             <!-- ---------------------- Salesman ------------------------ -->
             <div class="salesman">
@@ -615,8 +633,8 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Phone</th>
                                         <th scope="col">Gender</th>
-                                        <?php if ( 'admin' == $sessionRole || 'manager' == $sessionRole || 'pharmacist' == $sessionRole ) {?>
-                                            <!-- For Admin, Manager, Pharmacist-->
+                                        <?php if ( 'admin' == $sessionRole || 'department' == $sessionRole || 'staff' == $sessionRole ) {?>
+                                            <!-- For Admin, department, staff-->
                                             <th scope="col">Edit</th>
                                             <th scope="col">Delete</th>
                                         <?php }?>
@@ -638,8 +656,8 @@
                                             <td><?php printf( "%s", $salesman['email'] );?></td>
                                             <td><?php printf( "%s", $salesman['phone'] );?></td>
                                             <td><?php printf( "%s", $gender['phone'] );?></td>
-                                            <?php if ( 'admin' == $sessionRole || 'manager' == $sessionRole || 'pharmacist' == $sessionRole ) {?>
-                                                <!-- For Admin, Manager, Pharmacist-->
+                                            <?php if ( 'admin' == $sessionRole || 'department' == $sessionRole || 'staff' == $sessionRole ) {?>
+                                                <!-- For Admin, department, staff-->
                                                 <td><?php printf( "<a href='index.php?action=editSalesman&id=%s'><i class='fas fa-edit'></i></a>", $salesman['id'] )?></td>
                                                 <td><?php printf( "<a class='delete' href='index.php?action=deleteSalesman&id=%s'><i class='fas fa-trash'></i></a>", $salesman['id'] )?></td>
                                             <?php }?>
@@ -714,7 +732,7 @@
                         $result = mysqli_query( $connection, $selectSalesman );
 
                     $salesman = mysqli_fetch_assoc( $result );?>
-                    <div class="addManager">
+                    <div class="addDepartment">
                         <div class="main__form">
                             <div class="main__form--title text-center">Update Salesman</div>
                             <form action="add.php" method="POST">
