@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/icon/themify-icons/themify-icons.css">
     <title>Dashboard</title>
 </head>
 
@@ -32,7 +33,13 @@
         <div class="container">
 
             <div class="main__form">
-                <div class="main__form--title text-center">Log In</div>
+                <div class="main__form--title text-center">Sig In</div>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="ti-facebook"></i></a>
+                    <a href="#" class="social"><i class="ti-google"></i></a>
+                    <a href="#" class="social"><i class="ti-linkedin"></i></a>
+			    </div>
+                <h4>or use your account</h4>
                 <form action="login_core.php" method="GET">
                     <div class="form-row">
                         <div class="col col-12">
@@ -59,15 +66,15 @@
                                 </select>
                             </label>
                         </div>
-                            <input type="hidden" name="action" value="login">
-                            <?php if ( isset( $_REQUEST['error'] ) ) {
-                                    echo "<h5 class='text-center' style='color:red;'>Email, Password & Role Doesn't match Or Something is Wrong</h5>";
+                        <input type="hidden" name="action" value="login">
+                        <?php if ( isset( $_REQUEST['error'] ) ) {
+                                echo "<h5 class='text-center' style='color:red;'>Email, Password & Role Doesn't match Or Something is Wrong</h5>";
                             }?>
                         <div class="col col-12">
-                        <input type="submit" value="Submit">
-                        </div>
+                            <input type="submit" value="Submit">
+                        </div> 
                     </div>
-                </form>
+                </form>    
             </div>
         </div>
     </section>
@@ -77,6 +84,7 @@
 
 
     <!-- Optional JavaScript -->
+    <script></script>
     <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>

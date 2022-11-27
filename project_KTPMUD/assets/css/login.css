@@ -25,14 +25,15 @@ button:active .btn:active .btn.active {
 .main {
   height: 100vh;
   width: 100%;
-  background: #3f5efb;
-  background: radial-gradient(circle, #3b57e2 0%, #c53652 100%);
+  background: #fff;
+  background: linear-gradient(0,rgba(255,255,0,0.5),rgba(0,0,255,0.5)),
+  url('https://f7-zpcloud.zdn.vn/3155589187992406629/a7524ca5aba672f82bb7.jpg') center /contain no-repeat;
 }
-
 .main__form {
   position: absolute;
   width: 600px;
   padding: 5rem 3rem;
+  
   -webkit-box-shadow: 0 0.25rem 2.75rem 0 white;
           box-shadow: 0 0.25rem 2.75rem 0 white;
   top: 50%;
@@ -182,3 +183,27 @@ button:active .btn:active .btn.active {
   letter-spacing: 3px;
 }
 /*# sourceMappingURL=login.css.map */
+
+.social-container {
+	margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.social-container a {
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+  color: #fff;
+}
+h4 {
+  color: #fff;
+  font-size: 16px;
+  /* align-items: center; */
+  text-align: center;
+}
