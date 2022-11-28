@@ -70,7 +70,7 @@ if ( !$connection ) {
             mysqli_query( $connection, $query );
             header( "location:index.php?id=allStaffNoi" );
         }
-    } elseif ( 'addSalesman' == $action ) {
+    } elseif ( 'addStaffNgoai' == $action ) {
         $fname = $_REQUEST['fname'] ?? '';
         $lname = $_REQUEST['lname'] ?? '';
         $email = $_REQUEST['email'] ?? '';
@@ -78,13 +78,13 @@ if ( !$connection ) {
         $password = $_REQUEST['password'] ?? '';
         $gender = $_REQUEST['gender'] ?? '';
 
-        if ( $fname && $lname && $lname && $phone && $password && $gender) {
+        if ( $fname && $lname && $lname && $phone && $password && $gender ) {
             $hashPassword = password_hash( $password, PASSWORD_BCRYPT );
-            $query = "INSERT INTO salesmans(fname,lname,email,phone,password,gender) VALUES ('{$fname}','$lname','$email','$phone','$hashPassword','$gender')";
+            $query = "INSERT INTO staffNoi(fname,lname,email,phone,password,gender) VALUES ('{$fname}','$lname','$email','$phone','$hashPassword','$gender')";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allSalesman" );
+            header( "location:index.php?id=allStaffNgoai" );
         }
-    } elseif ( 'updateSalesman' == $action ) {
+    } elseif ( 'updateStaffNgoai' == $action ) {
         $id = $_REQUEST['id'] ?? '';
         $fname = $_REQUEST['fname'] ?? '';
         $lname = $_REQUEST['lname'] ?? '';
@@ -92,10 +92,10 @@ if ( !$connection ) {
         $phone = $_REQUEST['phone'] ?? '';
         $gender = $_REQUEST['gender'] ?? '';
 
-        if ( $fname && $lname && $lname && $phone && $gender) {
-            $query = "UPDATE salesmans SET fname='{$fname}', lname='{$lname}', email='$email', phone='$phone', '$gender' WHERE id='{$id}'";
+        if ( $fname && $lname && $lname && $phone && $gender ) {
+            $query = "UPDATE staffNgoai SET fname='{$fname}', lname='{$lname}', email='$email', phone='$phone',gender = '$gender' WHERE id='{$id}'";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allSalesman" );
+            header( "location:index.php?id=allStaffNgoai" );
         }
     } elseif ( 'updateProfile' == $action ) {
 

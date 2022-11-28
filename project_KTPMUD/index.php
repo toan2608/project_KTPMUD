@@ -66,10 +66,7 @@
                         echo "Edit Staff Noi";
                     }elseif ( 'editStaffNgoai' == $action ) {
                         echo "Edit Staff Ngoai";
-                    }elseif ( 'editSalesman' == $action ) {
-                        echo "Edit Salesman";
                     }
-                     
                 ?>
 
             </span>
@@ -118,7 +115,7 @@
                                                   echo " active";
                                               }?>">
                 <a href="index.php?id=allDepartment"><i id="left" class="fas fa-tachometer-alt"></i>
-                    Deparment
+                    Khoa
                 </a>
                 <ul class="sideber__ber">
                                         <?php if ( 'admin' == $sessionRole ) {?>
@@ -126,12 +123,12 @@
                                         <li id="left" class="sideber__item sideber__item--modify<?php if ( 'addDepartment' == $id ) {
                                                                                                     echo " active";
                                                                                                 }?>">
-                                            <a href="index.php?id=addDepartment"><i id="left" class="fas fa-user-plus"></i></i>Add Department</a>
+                                            <a href="index.php?id=addDepartment"><i id="left" class="fas fa-user-plus"></i></i>Thêm Khoa</a>
                                         </li><?php }?>
                                         <li id="left" class="sideber__item<?php if ( 'allDepartment' == $id ) {
                                                                                                     echo " active";
                                                                                                 }?>">
-                                            <a href="index.php?id=allDepartment"><i id="left" class="fas fa-user"></i>All Department</a>
+                                            <a href="index.php?id=allDepartment"><i id="left" class="fas fa-user"></i>Tất cả khoa</a>
                                         </li>
                 </ul>
                 <ul class="sideber__ber">
@@ -139,7 +136,7 @@
                                     echo " active";
                                 }?>">
                                 <a href="index.php?id=admin"><i id="left" class="fas fa-tachometer-alt"></i>
-                                    Dean Nội 
+                                    Khoa Nội 
                                 </a>
                                 <ul class="sideber__ber">
                                         <?php if ( 'admin' == $sessionRole ) {?>
@@ -147,12 +144,12 @@
                                         <li id="left" class="sideber__item sideber__item--modify<?php if ( 'addStaffNoi' == $id ) {
                                                                                                     echo " active";
                                                                                                 }?>">
-                                            <a href="index.php?id=addStaffNoi"><i id="left" class="fas fa-user-plus"></i></i>Add Staff</a>
+                                            <a href="index.php?id=addStaffNoi"><i id="left" class="fas fa-user-plus"></i></i>Thêm nhân viên</a>
                                         </li><?php }?>
                                         <li id="left" class="sideber__item<?php if ( 'allStaffNoi' == $id ) {
                                                                                                     echo " active";
                                                                                                 }?>">
-                                            <a href="index.php?id=allStaffNoi"><i id="left" class="fas fa-user"></i>All Staff</a>
+                                            <a href="index.php?id=allStaffNoi"><i id="left" class="fas fa-user"></i>Tất cả nhân viên</a>
                                         </li>
                                 </ul>
                             </li>
@@ -160,21 +157,20 @@
                                     echo " active";
                                 }?>">
                                 <a href="index.php?id=admin"><i id="left" class="fas fa-tachometer-alt"></i>
-                                    Dean Ngoại                                  
+                                    Khoa Ngoại                                  
                                 </a>
                                 <ul class="sideber__ber">
                                         <?php if ( 'admin' == $sessionRole || 'department' == $sessionRole ) {?>
                                             <!-- For Admin, department -->
-                                            <li id="left" class="sideber__item sideber__item--modify<?php if ( 'addStaff' == $id ) {
+                                            <li id="left" class="sideber__item sideber__item--modify<?php if ( 'addStaffNgoai' == $id ) {
                                                                                                         echo " active";
                                                                                                     }?>">
-                                                <a href="index.php?id=addStaff"><i id="left" class="fas fa-user-plus"></i></i>Add
-                                                    User</a>
+                                                <a href="index.php?id=addStaffNgoai"><i id="left" class="fas fa-user-plus"></i></i>Thêm nhân viên</a>
                                             </li><?php }?>
                                             <li id="left" class="sideber__item<?php if ( 'allStaff' == $id ) {
                                                                                                         echo " active";
                                                                                                     }?>">
-                                                <a href="index.php?id=allStaff"><i id="left" class="fas fa-user"></i>All User</a>
+                                                <a href="index.php?id=allStaffNgoai"><i id="left" class="fas fa-user"></i>Tất cả nhân viên</a>
                                             </li>
                                     </ul>
                             </li>             
@@ -205,7 +201,7 @@
                                                 echo $totalDepartment['totalDepartment'];
                                             ?>
                                     </h1>
-                                    <h2>Dean</h2>
+                                    <h2>Khoa</h2>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -219,18 +215,21 @@
                                             ?>
 
                                     </h1>
-                                    <h2>User</h2>
+                                    <h2>Nhân viên khoa nội</h2>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="total__box text-center">
-                                    <h1><?php
-                                            $query = "SELECT COUNT(*) totalSalesman FROM salesmans;";
+                                    <h1>
+                                        <?php
+                                            $query = "SELECT COUNT(*) totalStaffNgoai FROM staffNgoai;";
                                                 $result = mysqli_query( $connection, $query );
-                                                $totalSalesman = mysqli_fetch_assoc( $result );
-                                            echo $totalSalesman['totalSalesman'];
-                                            ?></h1>
-                                    <h2>Salesman</h2>
+                                                $totalStaffNgoai = mysqli_fetch_assoc( $result );
+                                                echo $totalStaffNgoai['totalStaffNgoai'];
+                                            ?>
+
+                                    </h1>
+                                    <h2>Nhân viên khoa ngoại</h2>
                                 </div>
                             </div>
                         </div>
@@ -259,7 +258,6 @@
                                             <!-- Only For Admin -->
                                             <th scope="col">Edit</th>
                                             <th scope="col">Delete</th>
-                                            <th scope="col">AllStaff</th>
                                         <?php }?>
                                     </tr>
                                 </thead>
@@ -286,7 +284,6 @@
                                                 <!-- Only For Admin -->
                                                 <td><?php printf( "<a href='index.php?action=editDepartment&id=%s'><i class='fas fa-edit'></i></a>", $department['id'] )?></td>
                                                 <td><?php printf( "<a class='delete' href='index.php?action=deleteDepartment&id=%s'><i class='fas fa-trash'></i></a>", $department['id'] )?></td>
-                                                <td><?php printf( "<a href='index.php?id=allStaffNoi'><i class='fas ti-folder'></i></a>", $department['id'] )?></td>
                                             <?php }?>
                                         </tr>
 
@@ -452,7 +449,7 @@
             </div>
             <!-- ---------------------- department ------------------------ -->
 
-            <!-- ---------------------- Staff ------------------------ -->
+            <!-- ---------------------- Staff Noi------------------------ -->
             <div class="staff">
                 <?php if ( 'allStaffNoi' == $id ) {?>
                     <div class="allStaffNoi">
@@ -618,12 +615,12 @@
                         header( "location:index.php?id=allStaffNoi" );
                 }?>
             </div>
-            <!-- ---------------------- Staff ------------------------ -->
+            <!-- ---------------------- Staff Noi------------------------ -->
 
-            <!-- ---------------------- Salesman ------------------------ -->
-            <div class="salesman">
-                <?php if ( 'allSalesman' == $id ) {?>
-                    <div class="allSalesman">
+            <!-- ---------------------- Staff Ngoai ------------------------ -->
+            <div class="staff">
+                <?php if ( 'allStaffNgoai' == $id ) {?>
+                    <div class="allStaffNgoai">
                         <div class="main__table">
                             <table class="table">
                                 <thead>
@@ -633,8 +630,8 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Phone</th>
                                         <th scope="col">Gender</th>
-                                        <?php if ( 'admin' == $sessionRole || 'department' == $sessionRole || 'staff' == $sessionRole ) {?>
-                                            <!-- For Admin, department, staff-->
+                                        <?php if ( 'admin' == $sessionRole || 'department' == $sessionRole ) {?>
+                                            <!-- For Admin, department -->
                                             <th scope="col">Edit</th>
                                             <th scope="col">Delete</th>
                                         <?php }?>
@@ -643,23 +640,23 @@
                                 <tbody>
 
                                     <?php
-                                        $getSalesman = "SELECT * FROM salesmans";
-                                            $result = mysqli_query( $connection, $getSalesman );
+                                        $getStaffNgoai = "SELECT * FROM staffNgoai";
+                                            $result = mysqli_query( $connection, $getStaffNgoai );
 
-                                        while ( $salesman = mysqli_fetch_assoc( $result ) ) {?>
+                                        while ( $staffNgoai = mysqli_fetch_assoc( $result ) ) {?>
 
                                         <tr>
-                                             <td>
-                                                <center><img class="rounded-circle" width="40" height="40" src="assets/img/<?php echo $salesman['avatar']; ?>" alt=""></center>
+                                            <td>
+                                                <center><img class="rounded-circle" width="40" height="40" src="assets/img/<?php echo $staffNgoai['avatar']; ?>" alt=""></center>
                                             </td>
-                                            <td><?php printf( "%s %s", $salesman['fname'], $salesman['lname'] );?></td>
-                                            <td><?php printf( "%s", $salesman['email'] );?></td>
-                                            <td><?php printf( "%s", $salesman['phone'] );?></td>
-                                            <td><?php printf( "%s", $gender['phone'] );?></td>
-                                            <?php if ( 'admin' == $sessionRole || 'department' == $sessionRole || 'staff' == $sessionRole ) {?>
-                                                <!-- For Admin, department, staff-->
-                                                <td><?php printf( "<a href='index.php?action=editSalesman&id=%s'><i class='fas fa-edit'></i></a>", $salesman['id'] )?></td>
-                                                <td><?php printf( "<a class='delete' href='index.php?action=deleteSalesman&id=%s'><i class='fas fa-trash'></i></a>", $salesman['id'] )?></td>
+                                            <td><?php printf( "%s %s", $staffNgoai['fname'], $staffNgoai['lname'] );?></td>
+                                            <td><?php printf( "%s", $staffNgoai['email'] );?></td>
+                                            <td><?php printf( "%s", $staffNgoai['phone'] );?></td>
+                                            <td><?php printf( "%s", $staffNgoai['gender'] );?></td>
+                                            <?php if ( 'admin' == $sessionRole || 'department' == $sessionRole ) {?>
+                                                <!-- For Admin, department -->
+                                                <td><?php printf( "<a href='index.php?action=editStaffNgoai&id=%s'><i class='fas fa-edit'></i></a>", $staffNgoai['id'] )?></td>
+                                                <td><?php printf( "<a class='delete' href='index.php?action=deleteStaffNgoai&id=%s'><i class='fas fa-trash'></i></a>", $staffNgoai['id'] )?></td>
                                             <?php }?>
                                         </tr>
 
@@ -673,10 +670,10 @@
                     </div>
                 <?php }?>
 
-                <?php if ( 'addSalesman' == $id ) {?>
-                    <div class="addSalesman">
+                <?php if ( 'addStaffNgoai' == $id ) {?>
+                    <div class="addStaff">
                         <div class="main__form">
-                            <div class="main__form--title text-center">Add New Salesman</div>
+                            <div class="main__form--title text-center">Add New Staff</div>
                             <form action="add.php" method="POST">
                                 <div class="form-row">
                                     <div class="col col-12">
@@ -707,6 +704,7 @@
                                         <label class="input">
                                             <i id="left" class="fas fa-key"></i>
                                             <input id="pwdinput" type="password" name="password" placeholder="Password" required>
+                                            <i id="pwd" class="fas fa-eye right"></i>
                                         </label>
                                     </div>
                                     <div class="col col-12">
@@ -715,7 +713,7 @@
                                             <input type="text" name="gender" placeholder="Gender" required>
                                         </label>
                                     </div>
-                                    <input type="hidden" name="action" value="addSalesman">
+                                    <input type="hidden" name="action" value="addStaffNgoai">
                                     <div class="col col-12">
                                         <input type="submit" value="Submit">
                                     </div>
@@ -726,49 +724,49 @@
                     </div>
                 <?php }?>
 
-                <?php if ( 'editSalesman' == $action ) {
-                        $salesmanID = $_REQUEST['id'];
-                        $selectSalesman = "SELECT * FROM salesmans WHERE id='{$salesmanID}'";
-                        $result = mysqli_query( $connection, $selectSalesman );
+                <?php if ( 'editStaffNgoai' == $action ) {
+                        $staffNgoaiID = $_REQUEST['id'];
+                        $selectStaffNgoai = "SELECT * FROM staffNgoai WHERE id='{$staffNgoaiID}'";
+                        $result = mysqli_query( $connection, $selectStaffNgoai );
 
-                    $salesman = mysqli_fetch_assoc( $result );?>
+                    $staffNgoai = mysqli_fetch_assoc( $result );?>
                     <div class="addDepartment">
                         <div class="main__form">
-                            <div class="main__form--title text-center">Update Salesman</div>
+                            <div class="main__form--title text-center">Update staffNgoai</div>
                             <form action="add.php" method="POST">
                                 <div class="form-row">
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-user-circle"></i>
-                                            <input type="text" name="fname" placeholder="First name" value="<?php echo $salesman['fname']; ?>" required>
+                                            <input type="text" name="fname" placeholder="First name" value="<?php echo $staffNgoai['fname']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-user-circle"></i>
-                                            <input type="text" name="lname" placeholder="Last Name" value="<?php echo $salesman['lname']; ?>" required>
+                                            <input type="text" name="lname" placeholder="Last Name" value="<?php echo $staffNgoai['lname']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-envelope"></i>
-                                            <input type="email" name="email" placeholder="Email" value="<?php echo $salesman['email']; ?>" required>
+                                            <input type="email" name="email" placeholder="Email" value="<?php echo $staffNgoai['email']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-phone-alt"></i>
-                                            <input type="number" name="phone" placeholder="Phone" value="<?php echo $salesman['phone']; ?>" required>
+                                            <input type="number" name="phone" placeholder="Phone" value="<?php echo $staffNgoai['phone']; ?>" required>
                                         </label>
                                     </div>
                                     <div class="col col-12">
                                         <label class="input">
                                             <i id="left" class="fas fa-gender-alt"></i>
-                                            <input type="text" name="gender" placeholder="Gender  value ="<?php echo $salesman['gender']; ?>" required>
+                                            <input type="text" name="gender" placeholder="Gender" value="<?php echo $staffNgoai['gender']; ?>" required>
                                         </label>
                                     </div>
-                                    <input type="hidden" name="action" value="updateSalesman">
-                                    <input type="hidden" name="id" value="<?php echo $salesmanID; ?>">
+                                    <input type="hidden" name="action" value="updateStaffNgoai">
+                                    <input type="hidden" name="id" value="<?php echo $staffNgoaiID; ?>">
                                     <div class="col col-12">
                                         <input type="submit" value="Update">
                                     </div>
@@ -778,15 +776,14 @@
                     </div>
                 <?php }?>
 
-                <?php if ( 'deleteSalesman' == $action ) {
-                        $salesmanID = $_REQUEST['id'];
-                        $deleteSalesman = "DELETE FROM salesmans WHERE id ='{$salesmanID}'";
-                        $result = mysqli_query( $connection, $deleteSalesman );
-                        header( "location:index.php?id=allSalesman" );
-                        ob_end_flush();
+                <?php if ( 'deleteStaffNgoai' == $action ) {
+                        $staffNgoaiID = $_REQUEST['id'];
+                        $deleteStaffNgoai = "DELETE FROM staffNgoai WHERE id ='{$staffNgoaiID}'";
+                        $result = mysqli_query( $connection, $deleteStaffNgoai );
+                        header("location:index.php?id=allStaffNgoai");
                 }?>
             </div>
-            <!-- ---------------------- Salesman ------------------------ -->
+            <!-- ---------------------- Staff Ngoai ------------------------ -->
 
             <!-- ---------------------- User Profile ------------------------ -->
             <?php if ( 'userProfile' == $id ) {

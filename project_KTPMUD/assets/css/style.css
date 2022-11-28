@@ -196,11 +196,13 @@ button:active .btn:active .btn.active {
 .main .dashboard .total__box {
   border: 3px solid #4e73df;
   padding: 20px 10px;
+  height: 200px;
   background-color: #4e73df;
   color: white;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   cursor: pointer;
+  border-radius: 30px;
 }
 
 .main .dashboard .total__box:hover {
